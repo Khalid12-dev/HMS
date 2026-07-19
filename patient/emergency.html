@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emergency Contact Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #e1e5eb;
+        }
+        .dashboard-header h1 {
+            color: #2c3e50;
+            font-size: 28px;
+        }
+        .btn-dashboard {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: background-color 0.3s;
+        }
+        .btn-dashboard:hover {
+            background-color: #2980b9;
+        }
+        .emergency-card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+        .emergency-card h2 {
+            color: #e74c3c;
+            margin-bottom: 20px;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .contact-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        .contact-table th {
+            background-color: #f8f9fa;
+            padding: 12px 15px;
+            text-align: left;
+            font-weight: 600;
+            color: #2c3e50;
+            border-bottom: 2px solid #e1e5eb;
+        }
+        .contact-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #e1e5eb;
+            vertical-align: middle;
+        }
+        .contact-table tr:last-child td {
+            border-bottom: none;
+        }
+        .availability-tag {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        .tag-24x7 {
+            background-color: #e3f7e8;
+            color: #27ae60;
+        }
+        .tag-business {
+            background-color: #fff8e6;
+            color: #f39c12;
+        }
+        .notes {
+            background-color: #f8f9fa;
+            border-left: 4px solid #e74c3c;
+            padding: 15px;
+            margin-top: 25px;
+            border-radius: 0 5px 5px 0;
+        }
+        .notes p {
+            margin-bottom: 5px;
+        }
+        .contact-icon {
+            color: #e74c3c;
+            font-size: 20px;
+            width: 30px;
+            display: inline-flex;
+            justify-content: center;
+        }
+        @media (max-width: 768px) {
+            .dashboard-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+            .contact-table {
+                display: block;
+                overflow-x: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="dashboard-header">
+            <h1><i class="fas fa-phone-alt"></i> Emergency Contact Dashboard</h1>
+            <a href="patient_dashboard.php" class="btn-dashboard">
+                <i class="fas fa-tachometer-alt"></i> Back to Main Dashboard
+            </a>
+        </div>
+
+        <div class="emergency-card">
+            <h2><i class="fas fa-exclamation-triangle"></i> Quick Access Emergency Contacts</h2>
+            
+            <table class="contact-table">
+                <thead>
+                    <tr>
+                        <th>Service</th>
+                        <th>Contact Number</th>
+                        <th>Availability</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <div style="display: flex; align-items: center; gap: 10px;">
+                                <span class="contact-icon"><i class="fas fa-hospital"></i></span>
+                                <span>Emergency Helpline</span>
+                            </div>
+                        </td>
+                        <td>+1 (555) 123-4567</td>
+                        <td><span class="availability-tag tag-24x7">24/7</span></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div style="display: flex; align-items: center; gap: 10px;">
+                                <span class="contact-icon"><i class="fas fa-ambulance"></i></span>
+                                <span>Ambulance Service</span>
+                            </div>
+                        </td>
+                        <td>+1 (555) 987-6543</td>
+                        <td><span class="availability-tag tag-24x7">24/7</span></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div style="display: flex; align-items: center; gap: 10px;">
+                                <span class="contact-icon"><i class="fas fa-desktop"></i></span>
+                                <span>Front Desk/Reception</span>
+                            </div>
+                        </td>
+                        <td>+1 (555) 456-7890</td>
+                        <td><span class="availability-tag tag-business">8:00 AM - 10:00 PM</span></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div style="display: flex; align-items: center; gap: 10px;">
+                                <span class="contact-icon"><i class="fas fa-user-md"></i></span>
+                                <span>Doctor-on-Call</span>
+                            </div>
+                        </td>
+                        <td>+1 (555) 789-0123</td>
+                        <td><span class="availability-tag tag-24x7">24/7</span></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="notes">
+                <p><strong><i class="fas fa-info-circle"></i> Additional Notes:</strong></p>
+                <p>- In case of life-threatening emergencies, <strong>dial 911 (or your local emergency number)</strong> immediately.</p>
+                <p>- For non-urgent inquiries, contact reception during working hours.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
